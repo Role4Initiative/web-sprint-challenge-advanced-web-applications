@@ -1,12 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Login = () => {
+    state = {
+        credentials: {
+          username: '',
+          password: '',
+          error: ''
+        }
+      };
+
+      const onSubmit = evt => {
+        evt.preventDefault();
+        
+        axios.post(`http://localhost:9000/api/login`, this.state.credentials)
+          .then(resp=> {            
+            localStorage.setItem("token", resp.data.token);
+            localStorage.setItem("username", resp.data.username);
+            this.props.history.push('/protected');
+          })
+          .catch(err=> {
+            console.log(err);
+          });
+      };
+    
     
     return(<ComponentContainer>
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
+            <form onSubmit={handleSubmit} >
+                <input id="username"
+                type="text"
+                name="username"
+                placeholder="username"
+                onChange={handleChange}/>
+                <input id="password"
+                type="password"
+                name="password"
+                placeholder="password"
+                onChange={handleChange}/>
+                <button id="submit" type="submit"></button>
+                <p id="error"></p>
+            </form>
         </ModalContainer>
     </ComponentContainer>);
 }

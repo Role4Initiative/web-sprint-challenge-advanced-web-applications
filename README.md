@@ -118,8 +118,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain what a token is used for.
 
+A token is used as authentication to give authorization for entered data such as username/password to log into an account.
+
 2. What steps can you take in your web apps to keep your data secure?
+
+Authentication and authorization are the two processes used for data security in my web apps, by using tokens, protected/private routes, and redirecting based on the success or failure of the tokens use.
 
 3. Describe how web servers work.
 
+A web server is a computer/machine/server drive that securely stores information that can be requested through "a series of tubes" (the internet!!!) by requesting the data via HTTP. File size, speed of internet connection, computer speed and many factors dictate how quickly this can be performed.
+
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+C: create = Post or Put
+R: read = Get
+U: update = Put and Post mostly as Patch isn't used as often
+D: delete = delete
